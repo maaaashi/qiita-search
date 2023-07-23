@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "Qiita Search",
+  "version": "1.0.0",
+  "action": {
+    "default_popup": "index.html"
+  },
+  "permissions": [
+    "activeTab",
+    "contextMenus"
+  ],
+  "background": {
+    "service_worker": "service-worker-loader.js",
+    "type": "module"
+  }
+}

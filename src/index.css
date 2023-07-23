@@ -7,19 +7,27 @@ body {
   aspect-ratio: 2/3;
 }
 
-#crx-root {
-  position: fixed;
-  top: 3rem;
-  left: 50%;
-  transform: translate(-50%, 0);
+.App {
+  padding: 10px;
 }
 
-#crx-root button {
-  background-color: rgb(239, 239, 239);
-  border-color: rgb(118, 118, 118);
-  border-image: initial;
-  border-style: outset;
-  border-width: 2px;
-  margin: 0;
-  padding: 1px 6px;
+ul {
+  list-style: none;
+}
+
+a {
+  transition: color 0.3s;
+  text-decoration: none;
+}
+
+a:active {
+  color: #26a69a;
+}
+
+a:visited {
+  color: #ff4081;
+}
+
+a:hover {
+  color: #ff7043;
 }

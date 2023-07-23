@@ -5,11 +5,11 @@ chrome.contextMenus.create({
 })
 
 chrome.contextMenus.onClicked.addListener(function (info: any, tab: any) {
+  if (!info.selectionText) return
+
   if (info.menuItemId === 'Qiita Search') {
-    console.log(chrome)
-    // chrome.extension.sendMessage(tab.id, {
-    //   type: 'search',
-    //   text: info.selectionText,
-    // })
+    chrome.runtime.sendMessage({
+      message: info.selectionText,
+    })
   }
 })
