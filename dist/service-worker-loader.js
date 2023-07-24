@@ -1,3 +1,1 @@
-import 'http:/localhost:3000/@vite/env';
-import 'http://localhost:3000/crx-client-worker';
-import 'http://localhost:3000/src/service_worker.ts';
+import './assets/service_worker.ts.b4883e98.js';

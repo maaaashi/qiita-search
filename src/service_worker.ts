@@ -1,3 +1,5 @@
+export {}
+
 chrome.contextMenus.create({
   id: 'Qiita Search',
   title: '選択文字をQiitaSearchで検索する',
