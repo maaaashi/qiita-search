@@ -1,4 +1,3 @@
-import './App.css'
 import { FormEvent, useState } from 'react'
 
 function App() {
@@ -28,7 +27,7 @@ function App() {
   }
 
   return (
-    <div className='App'>
+    <div className='p-3'>
       <form onSubmit={submitHandler}>
         <input
           type='text'

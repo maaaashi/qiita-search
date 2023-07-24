@@ -23,4 +23,8 @@ $ npm run dev
 
 # Usage
 
+```bash
+$ npm run build
+```
+
 Please import the dist/ folder from the Google Chrome extensions menu.
