@@ -27,52 +27,64 @@ function App() {
   }
 
   return (
-    <div className='p-3'>
-      <form onSubmit={submitHandler}>
-        <input
-          type='text'
-          value={userInput}
-          onChange={(e) => setUserInput(e.target.value)}
-          disabled={loading}
-        />
-        <button type='submit' disabled={loading}>
-          検索
-        </button>
-      </form>
-      <hr />
-      <div>
-        <p>検索タイプ</p>
-        <input
-          type='radio'
-          id='title'
-          value={mode}
-          name='mode'
-          onChange={() => {
-            setMode('title')
-          }}
-          checked={mode === 'title'}
-        />
-        <label htmlFor='title'>タイトル</label>
-        <input
-          type='radio'
-          id='body'
-          value={mode}
-          name='mode'
-          onChange={() => {
-            setMode('body')
-          }}
-          checked={mode === 'body'}
-        />
-        <label htmlFor='body'>本文</label>
-      </div>
-      {results.map((result, index) => (
-        <div key={index}>
-          <a target='_blank' href={result.url}>
-            {result.title}
-          </a>
+    <>
+      <header>
+        <h2>Qiita Searcher</h2>
+        <div className='search-type'>
+          <h3>検索タイプ</h3>
+          <div className='search-type__radio-buttons'>
+            <div className='search-type__radio-button'>
+              <input
+                type='radio'
+                id='title'
+                value={mode}
+                name='mode'
+                onChange={() => {
+                  setMode('title')
+                }}
+                checked={mode === 'title'}
+              />
+              <label htmlFor='title'>タイトル</label>
+            </div>
+            <div className='search-type__radio-button'>
+              <input
+                type='radio'
+                id='body'
+                value={mode}
+                name='mode'
+                onChange={() => {
+                  setMode('body')
+                }}
+                checked={mode === 'body'}
+              />
+              <label htmlFor='body'>本文</label>
+            </div>
+          </div>
         </div>
-      ))}
-    </div>
+        <form onSubmit={submitHandler}>
+          <input
+            type='text'
+            value={userInput}
+            onChange={(e) => setUserInput(e.target.value)}
+            disabled={loading}
+            required
+          />
+          <button type='submit' disabled={loading}>
+            検索
+          </button>
+        </form>
+      </header>
+      <hr />
+      <main>
+        {results.map((result, index) => (
+          <div key={index}>
+            <a target='_blank' href={result.url}>
+              {result.title}
+            </a>
+          </div>
+        ))}
+      </main>
+    </>
   )
 }
 
