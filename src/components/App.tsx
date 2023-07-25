@@ -13,9 +13,14 @@ function App() {
     if (!userInput) return
 
     setLoading(true)
-    const url = `https://qiita.com/api/v2/items?page=1&per_page=10&query=qiita+title:${userInput}`
+    const url = new URL('https://qiita.com/api/v2/items')
+    const query = new URLSearchParams()
+    query.append('page', '1')
+    query.append('per_page', '10')
+    query.append('query', `${mode}:${userInput}`)
+    url.search = query.toString()
 
-    const response = await fetch(url)
+    const response = await fetch(url.toString())
     const data = (await response.json()) as { title: string; url: string }[]
     setResults(
       data.map(({ title, url }) => {
@@ -62,13 +67,33 @@ function App() {
           </div>
         </div>
         <form onSubmit={submitHandler}>
-          <input
-            type='text'
-            value={userInput}
-            onChange={(e) => setUserInput(e.target.value)}
-            disabled={loading}
-            required
-          />
+          <div
+            style={{
+              padding: '5px',
+              backgroundColor: '#edeeee',
+              display: 'flex',
+              alignItems: 'center',
+            }}
+          >
+            <svg
+              stroke='currentColor'
+              fill='currentColor'
+              stroke-width='0'
+              viewBox='0 0 24 24'
+              height='1em'
+              width='1em'
+              xmlns='http://www.w3.org/2000/svg'
+            >
+              <path d='M19.023 16.977a35.13 35.13 0 0 1-1.367-1.384c-.372-.378-.596-.653-.596-.653l-2.8-1.337A6.962 6.962 0 0 0 16 9c0-3.859-3.14-7-7-7S2 5.141 2 9s3.14 7 7 7c1.763 0 3.37-.66 4.603-1.739l1.337 2.8s.275.224.653.596c.387.363.896.854 1.384 1.367l1.358 1.392.604.646 2.121-2.121-.646-.604c-.379-.372-.885-.866-1.391-1.36zM9 14c-2.757 0-5-2.243-5-5s2.243-5 5-5 5 2.243 5 5-2.243 5-5 5z'></path>
+            </svg>
+            <input
+              type='text'
+              value={userInput}
+              onChange={(e) => setUserInput(e.target.value)}
+              disabled={loading}
+              required
+            />
+          </div>
           <button type='submit' disabled={loading}>
             検索
           </button>
