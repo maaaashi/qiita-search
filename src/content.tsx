@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import './content.css'
+import './styles/content.css'
 import App from './components/ContentApp'
 
 const root = document.createElement('div')
