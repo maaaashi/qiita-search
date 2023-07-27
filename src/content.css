@@ -1,0 +1,10 @@
+#qiita-search-box {
+  color: red;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: white;
+  padding: 10px;
+  z-index: 9999;
+  border: 1px solid black;
+}

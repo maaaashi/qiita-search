@@ -1,1 +1,0 @@
-chrome.contextMenus.create({id:"Qiita Search",title:"\u9078\u629E\u6587\u5B57\u3092QiitaSearch\u3067\u691C\u7D22\u3059\u308B",contexts:["all"]});chrome.contextMenus.onClicked.addListener(function(e,t){!e.selectionText||e.menuItemId==="Qiita Search"&&console.log(chrome)});

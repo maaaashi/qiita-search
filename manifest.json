@@ -4,8 +4,10 @@
   "version": "1.0.0",
   "action": { "default_popup": "index.html" },
   "permissions": ["activeTab", "contextMenus"],
-  "background": {
-    "service_worker": "src/service_worker.ts",
-    "type": "module"
-  }
+  "content_scripts": [
+    {
+      "js": ["src/content.tsx"],
+      "matches": ["<all_urls>"]
+    }
+  ]
 }
