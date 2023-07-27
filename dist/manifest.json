@@ -12,13 +12,13 @@
   "content_scripts": [
     {
       "js": [
-        "assets/content-script-loader.content.tsx.19dbbb0e.354a6202.js"
+        "assets/content-script-loader.content.tsx.c4fa37ae.5a7c70f5.js"
       ],
       "matches": [
         "<all_urls>"
       ],
       "css": [
-        "assets/content.tsx.ca6df638.css"
+        "assets/content.tsx.f7605339.css"
       ]
     }
   ],
@@ -29,7 +29,7 @@
       ],
       "resources": [
         "assets/jsx-runtime.3c71404e.js",
-        "assets/content.tsx.19dbbb0e.js"
+        "assets/content.tsx.c4fa37ae.js"
       ],
       "use_dynamic_url": true
     }
