@@ -13,6 +13,9 @@ const ContentApp = () => {
           const mainbox = document.createElement('button')
           mainbox.id = 'qiita-search-button'
           mainbox.onclick = async () => {
+            if (document.getElementById('qiita-search-box')) {
+              document.getElementById('qiita-search-box')!.remove()
+            }
             const searchBox = document.createElement('div')
             searchBox.id = 'qiita-search-box'
 

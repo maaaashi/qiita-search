@@ -1,13 +1,25 @@
 #qiita-search-button {
+  cursor: pointer;
   position: fixed;
   top: 10px;
   right: 10px;
   background-color: white;
   padding: 10px;
-  z-index: 9999;
+  z-index: 1000;
   border: 1px solid #31b600;
   background-image: url('./qiita.png');
   background-size: cover;
+}
+
+#qiita-search-box {
+  position: fixed;
+  z-index: 1000;
+  background-color: white;
+  top: 20px;
+  left: 20px;
+  padding: 10px;
+  width: 250px;
+  aspect-ratio: 2/3;
 }
 
 #qiita-search-box a {

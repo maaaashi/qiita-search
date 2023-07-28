@@ -12,13 +12,13 @@
   "content_scripts": [
     {
       "js": [
-        "assets/content-script-loader.content.tsx.c4fa37ae.5a7c70f5.js"
+        "assets/content-script-loader.content.tsx.570d3e4b.863bc106.js"
       ],
       "matches": [
         "<all_urls>"
       ],
       "css": [
-        "assets/content.tsx.f7605339.css"
+        "assets/content.tsx.24bdf624.css"
       ]
     }
   ],
@@ -28,8 +28,8 @@
         "<all_urls>"
       ],
       "resources": [
-        "assets/jsx-runtime.3c71404e.js",
-        "assets/content.tsx.c4fa37ae.js"
+        "assets/jsx-runtime.228fe7bd.js",
+        "assets/content.tsx.570d3e4b.js"
       ],
       "use_dynamic_url": true
     }
