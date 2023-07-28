@@ -13,11 +13,22 @@ const ContentApp = () => {
           const mainbox = document.createElement('button')
           mainbox.id = 'qiita-search-button'
           mainbox.onclick = async () => {
-            if (document.getElementById('qiita-search-box')) {
-              document.getElementById('qiita-search-box')!.remove()
-            }
             const searchBox = document.createElement('div')
             searchBox.id = 'qiita-search-box'
+            searchBox.draggable = true
+
+            const header = document.createElement('header')
+            header.id = 'qiita-search-box-header'
+
+            const closeButton = document.createElement('button')
+            closeButton.id = 'qiita-search-box-close-button'
+            closeButton.innerText = 'x'
+            closeButton.onclick = () => {
+              document.getElementById('qiita-search-box')!.remove()
+            }
+
+            header.appendChild(closeButton)
+            searchBox.appendChild(header)
 
             const url = new URL('https://qiita.com/api/v2/items')
             const query = new URLSearchParams()
@@ -31,21 +42,42 @@ const ContentApp = () => {
               url: string
             }[]
 
-            data.map((d) => {
-              const link = document.createElement('a')
-              link.href = d.url
-              link.innerText = d.title
-              searchBox.appendChild(link)
-            })
+            if (data.length === 0) {
+              const noResult = document.createElement('p')
+              noResult.innerText = 'No result...'
+              searchBox.appendChild(noResult)
+            } else {
+              data.map((d) => {
+                const link = document.createElement('a')
+                link.href = d.url
+                link.innerText = d.title
+                link.target = '_blank'
+                searchBox.appendChild(link)
+              })
+            }
 
             document.body.appendChild(searchBox)
+
+            const dragStart = (event: MouseEvent) => {
+              console.log('dragStart')
+            }
+
+            const drag = (event: MouseEvent) => {
+              if (event.clientX === 0 && event.clientY === 0) return
+              searchBox.style.top = event.clientY + 'px'
+              searchBox.style.left = event.clientX + 'px'
+            }
+
+            const dragend = (event: MouseEvent) => {
+              searchBox.style.top = event.clientY + 'px'
+              searchBox.style.left = event.clientX + 'px'
+            }
+
+            searchBox.addEventListener('dragstart', dragStart, false)
+            searchBox.addEventListener('drag', drag, false)
+            searchBox.addEventListener('dragend', dragend, false)
           }
-          // mainbox.style.top = event.clientY.toString() + 'px'
-          // mainbox.style.left = event.clientX.toString() + 'px'
           document.body.appendChild(mainbox)
-        } else {
-          // qiitaSearchBox.style.top = event.clientY.toString() + 'px'
-          // qiitaSearchBox.style.left = event.clientX.toString() + 'px'
         }
       } else {
         const qiitaSearchBox = document.getElementById('qiita-search-button')

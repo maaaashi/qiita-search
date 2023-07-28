@@ -15,6 +15,8 @@
   position: fixed;
   z-index: 1000;
   background-color: white;
+  border: 1px solid black;
+  cursor: grab;
   top: 20px;
   left: 20px;
   padding: 10px;
@@ -47,4 +49,16 @@
 
 #qiita-search-box a:hover {
   color: #ff7043;
+}
+
+#qiita-search-box-header {
+  display: flex;
+  width: 100%;
+  justify-content: end;
+}
+
+#qiita-search-box-close-button {
+  border: 1px solid black;
+  background-color: white;
+  width: 17px;
 }
